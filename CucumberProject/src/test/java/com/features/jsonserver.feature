@@ -5,16 +5,22 @@ Feature: Json server dummy rest API
   Background: 
     Given the user sets the endpoint to "baseURI"
 
-  Scenario: create an user and delete it
+  Scenario Outline: create an user and delete it
     When the user has the following data:
-      | name | Rishabh |
-      | age  |      32 |
+      | name | <name> |
+      | age  | <age>  |
     And the user makes a post request to "users"
     Then the response should have status code 201
     And show the response
     And the user stores the id
     And the user makes a delete request to "userid"
     And the response should have status code 200
+
+    Examples: 
+      | name     | age |
+      | Rishabh  | 22  |
+      | Samyak   | 21  |
+      | Abhishek | 23  |
 
   Scenario: get a list of users
     When the user wants to get page 2
@@ -24,14 +30,14 @@ Feature: Json server dummy rest API
   Scenario: update an user with put
     When the user has the following data:
       | name | Abhishek |
-      | age  |       20 |
+      | age  | 20       |
       | job  | QA       |
     And the user has an id of 12
     And the user makes a put request to "userid"
     Then the response should have status code 200
     And validate the response against the following data:
       | name | Abhishek |
-      | age  |       20 |
+      | age  | 20       |
       | job  | QA       |
 
   Scenario: update an user with patch
