@@ -27,9 +27,9 @@ public class RestBase {
 	protected void newRequest() {
 		request = given();
 	}
-	protected void setPage(int page)
+	protected void setParam(String name,Object value)
 	{
-		request = given().param("page",page);
+		request = given().param(name,value);
 	}
 	protected void sendGet(String path)
 	{

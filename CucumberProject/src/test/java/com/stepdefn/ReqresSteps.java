@@ -30,7 +30,7 @@ public class ReqresSteps extends RestBase{
 
 	@When("the user wants to get page {int}")
 	public void the_user_wants_to_get_page(Integer int1) {
-		setPage(int1);
+		setParam("page",int1);
 	}
 
 	@When("the user makes a get request to {string}")

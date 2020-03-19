@@ -5,6 +5,7 @@ import java.util.Properties;
 
 import org.testng.log4testng.Logger;
 
+
 public class ConfigReader {
 	private static final Logger logger = Logger.getLogger(ConfigReader.class);
 	private final Properties baseURI = new Properties();
